@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F4247900146EC47C00EC4B05 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42478FF146EC47C00EC4B05 /* Cocoa.framework */; };
+		F424790A146EC47C00EC4B05 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4247908146EC47C00EC4B05 /* InfoPlist.strings */; };
+		F424790C146EC47C00EC4B05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F424790B146EC47C00EC4B05 /* main.m */; };
+		F4247910146EC47C00EC4B05 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F424790E146EC47C00EC4B05 /* Credits.rtf */; };
+		F4247913146EC47C00EC4B05 /* COWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4247912146EC47C00EC4B05 /* COWAppDelegate.m */; };
+		F4247916146EC47D00EC4B05 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4247914146EC47D00EC4B05 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F42478FB146EC47C00EC4B05 /* Cow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F42478FF146EC47C00EC4B05 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		F4247902146EC47C00EC4B05 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		F4247903146EC47C00EC4B05 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F4247904146EC47C00EC4B05 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F4247907146EC47C00EC4B05 /* Cow-Info.plist */ = {isa = PBXFileReference; path = "Cow-Info.plist"; sourceTree = "<group>"; };
+		F4247909146EC47C00EC4B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F424790B146EC47C00EC4B05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F424790D146EC47C00EC4B05 /* Cow-Prefix.pch */ = {isa = PBXFileReference; path = "Cow-Prefix.pch"; sourceTree = "<group>"; };
+		F424790F146EC47C00EC4B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		F4247911146EC47C00EC4B05 /* COWAppDelegate.h */ = {isa = PBXFileReference; path = COWAppDelegate.h; sourceTree = "<group>"; };
+		F4247912146EC47C00EC4B05 /* COWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COWAppDelegate.m; sourceTree = "<group>"; };
+		F4247915146EC47D00EC4B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F42478F8146EC47C00EC4B05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4247900146EC47C00EC4B05 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F42478F0146EC47C00EC4B05 = {
+			isa = PBXGroup;
+			children = (
+				F4247905146EC47C00EC4B05 /* Cow */,
+				F42478FE146EC47C00EC4B05 /* Frameworks */,
+				F42478FC146EC47C00EC4B05 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F42478FC146EC47C00EC4B05 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F42478FB146EC47C00EC4B05 /* Cow.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F42478FE146EC47C00EC4B05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F42478FF146EC47C00EC4B05 /* Cocoa.framework */,
+				F4247901146EC47C00EC4B05 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F4247901146EC47C00EC4B05 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F4247902146EC47C00EC4B05 /* AppKit.framework */,
+				F4247903146EC47C00EC4B05 /* CoreData.framework */,
+				F4247904146EC47C00EC4B05 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		F4247905146EC47C00EC4B05 /* Cow */ = {
+			isa = PBXGroup;
+			children = (
+				F4247911146EC47C00EC4B05 /* COWAppDelegate.h */,
+				F4247912146EC47C00EC4B05 /* COWAppDelegate.m */,
+				F4247914146EC47D00EC4B05 /* MainMenu.xib */,
+				F4247906146EC47C00EC4B05 /* Supporting Files */,
+			);
+			path = Cow;
+			sourceTree = "<group>";
+		};
+		F4247906146EC47C00EC4B05 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F4247907146EC47C00EC4B05 /* Cow-Info.plist */,
+				F4247908146EC47C00EC4B05 /* InfoPlist.strings */,
+				F424790B146EC47C00EC4B05 /* main.m */,
+				F424790D146EC47C00EC4B05 /* Cow-Prefix.pch */,
+				F424790E146EC47C00EC4B05 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F42478FA146EC47C00EC4B05 /* Cow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4247919146EC47D00EC4B05 /* Build configuration list for PBXNativeTarget "Cow" */;
+			buildPhases = (
+				F42478F7146EC47C00EC4B05 /* Sources */,
+				F42478F8146EC47C00EC4B05 /* Frameworks */,
+				F42478F9146EC47C00EC4B05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cow;
+			productName = Cow;
+			productReference = F42478FB146EC47C00EC4B05 /* Cow.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F42478F2146EC47C00EC4B05 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = F42478F5146EC47C00EC4B05 /* Build configuration list for PBXProject "Cow" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F42478F0146EC47C00EC4B05;
+			productRefGroup = F42478FC146EC47C00EC4B05 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F42478FA146EC47C00EC4B05 /* Cow */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F42478F9146EC47C00EC4B05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F424790A146EC47C00EC4B05 /* InfoPlist.strings in Resources */,
+				F4247910146EC47C00EC4B05 /* Credits.rtf in Resources */,
+				F4247916146EC47D00EC4B05 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F42478F7146EC47C00EC4B05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F424790C146EC47C00EC4B05 /* main.m in Sources */,
+				F4247913146EC47C00EC4B05 /* COWAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F4247908146EC47C00EC4B05 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4247909146EC47C00EC4B05 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F424790E146EC47C00EC4B05 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F424790F146EC47C00EC4B05 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		F4247914146EC47D00EC4B05 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F4247915146EC47D00EC4B05 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F4247917146EC47D00EC4B05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F4247918146EC47D00EC4B05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F424791A146EC47D00EC4B05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cow/Cow-Prefix.pch";
+				INFOPLIST_FILE = "Cow/Cow-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F424791B146EC47D00EC4B05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cow/Cow-Prefix.pch";
+				INFOPLIST_FILE = "Cow/Cow-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F42478F5146EC47C00EC4B05 /* Build configuration list for PBXProject "Cow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4247917146EC47D00EC4B05 /* Debug */,
+				F4247918146EC47D00EC4B05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F4247919146EC47D00EC4B05 /* Build configuration list for PBXNativeTarget "Cow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F424791A146EC47D00EC4B05 /* Debug */,
+				F424791B146EC47D00EC4B05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F42478F2146EC47C00EC4B05 /* Project object */;
+}
