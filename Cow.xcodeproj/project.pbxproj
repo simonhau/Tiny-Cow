@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		F4247900146EC47C00EC4B05 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42478FF146EC47C00EC4B05 /* Cocoa.framework */; };
-		F424790A146EC47C00EC4B05 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4247908146EC47C00EC4B05 /* InfoPlist.strings */; };
 		F424790C146EC47C00EC4B05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F424790B146EC47C00EC4B05 /* main.m */; };
-		F4247910146EC47C00EC4B05 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F424790E146EC47C00EC4B05 /* Credits.rtf */; };
 		F4247913146EC47C00EC4B05 /* COWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4247912146EC47C00EC4B05 /* COWAppDelegate.m */; };
-		F4247916146EC47D00EC4B05 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4247914146EC47D00EC4B05 /* MainMenu.xib */; };
+		F4DDC87A146EC772001D40A2 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F4DDC877146EC772001D40A2 /* Credits.rtf */; };
+		F4DDC87B146EC772001D40A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4DDC878146EC772001D40A2 /* InfoPlist.strings */; };
+		F4DDC883146EC900001D40A2 /* NSImage+COWExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DDC882146EC900001D40A2 /* NSImage+COWExtensions.m */; };
+		F4DDC886146EC999001D40A2 /* COWStatusItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DDC885146EC999001D40A2 /* COWStatusItemView.m */; };
+		F4DDC88A146ECE14001D40A2 /* menu_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DDC888146ECE14001D40A2 /* menu_ico.png */; };
+		F4DDC88B146ECE14001D40A2 /* menu_ico_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = F4DDC889146ECE14001D40A2 /* menu_ico_highlight.png */; };
+		F4DDC88E146ECE33001D40A2 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DDC88D146ECE33001D40A2 /* Preferences.xib */; };
+		F4DDC890146EE38C001D40A2 /* Automator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DDC88F146EE38C001D40A2 /* Automator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,14 +26,21 @@
 		F4247902146EC47C00EC4B05 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		F4247903146EC47C00EC4B05 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F4247904146EC47C00EC4B05 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		F4247907146EC47C00EC4B05 /* Cow-Info.plist */ = {isa = PBXFileReference; path = "Cow-Info.plist"; sourceTree = "<group>"; };
-		F4247909146EC47C00EC4B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F424790B146EC47C00EC4B05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F424790D146EC47C00EC4B05 /* Cow-Prefix.pch */ = {isa = PBXFileReference; path = "Cow-Prefix.pch"; sourceTree = "<group>"; };
-		F424790F146EC47C00EC4B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		F4247911146EC47C00EC4B05 /* COWAppDelegate.h */ = {isa = PBXFileReference; path = COWAppDelegate.h; sourceTree = "<group>"; };
-		F4247912146EC47C00EC4B05 /* COWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = COWAppDelegate.m; sourceTree = "<group>"; };
-		F4247915146EC47D00EC4B05 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F424790D146EC47C00EC4B05 /* Cow-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cow-Prefix.pch"; sourceTree = "<group>"; };
+		F4247911146EC47C00EC4B05 /* COWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = COWAppDelegate.h; path = Classes/COWAppDelegate.h; sourceTree = "<group>"; };
+		F4247912146EC47C00EC4B05 /* COWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = COWAppDelegate.m; path = Classes/COWAppDelegate.m; sourceTree = "<group>"; };
+		F4DDC876146EC772001D40A2 /* Cow-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Cow-Info.plist"; path = "Resources/Cow-Info.plist"; sourceTree = "<group>"; };
+		F4DDC877146EC772001D40A2 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = Resources/Credits.rtf; sourceTree = "<group>"; };
+		F4DDC878146EC772001D40A2 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Resources/InfoPlist.strings; sourceTree = "<group>"; };
+		F4DDC881146EC900001D40A2 /* NSImage+COWExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSImage+COWExtensions.h"; path = "Classes/NSImage+COWExtensions.h"; sourceTree = "<group>"; };
+		F4DDC882146EC900001D40A2 /* NSImage+COWExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSImage+COWExtensions.m"; path = "Classes/NSImage+COWExtensions.m"; sourceTree = "<group>"; };
+		F4DDC884146EC999001D40A2 /* COWStatusItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COWStatusItemView.h; path = Classes/COWStatusItemView.h; sourceTree = "<group>"; };
+		F4DDC885146EC999001D40A2 /* COWStatusItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COWStatusItemView.m; path = Classes/COWStatusItemView.m; sourceTree = "<group>"; };
+		F4DDC888146ECE14001D40A2 /* menu_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_ico.png; sourceTree = "<group>"; };
+		F4DDC889146ECE14001D40A2 /* menu_ico_highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_ico_highlight.png; sourceTree = "<group>"; };
+		F4DDC88D146ECE33001D40A2 /* Preferences.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		F4DDC88F146EE38C001D40A2 /* Automator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Automator.framework; path = System/Library/Frameworks/Automator.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DDC890146EE38C001D40A2 /* Automator.framework in Frameworks */,
 				F4247900146EC47C00EC4B05 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +59,7 @@
 		F42478F0146EC47C00EC4B05 = {
 			isa = PBXGroup;
 			children = (
+				F4DDC88F146EE38C001D40A2 /* Automator.framework */,
 				F4247905146EC47C00EC4B05 /* Cow */,
 				F42478FE146EC47C00EC4B05 /* Frameworks */,
 				F42478FC146EC47C00EC4B05 /* Products */,
@@ -82,24 +96,72 @@
 		F4247905146EC47C00EC4B05 /* Cow */ = {
 			isa = PBXGroup;
 			children = (
+				F4DDC87E146EC823001D40A2 /* Classes */,
 				F4247911146EC47C00EC4B05 /* COWAppDelegate.h */,
 				F4247912146EC47C00EC4B05 /* COWAppDelegate.m */,
-				F4247914146EC47D00EC4B05 /* MainMenu.xib */,
-				F4247906146EC47C00EC4B05 /* Supporting Files */,
+				F424790D146EC47C00EC4B05 /* Cow-Prefix.pch */,
+				F424790B146EC47C00EC4B05 /* main.m */,
+				F4DDC875146EC707001D40A2 /* Resources */,
 			);
 			path = Cow;
 			sourceTree = "<group>";
 		};
-		F4247906146EC47C00EC4B05 /* Supporting Files */ = {
+		F4DDC875146EC707001D40A2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F4247907146EC47C00EC4B05 /* Cow-Info.plist */,
-				F4247908146EC47C00EC4B05 /* InfoPlist.strings */,
-				F424790B146EC47C00EC4B05 /* main.m */,
-				F424790D146EC47C00EC4B05 /* Cow-Prefix.pch */,
-				F424790E146EC47C00EC4B05 /* Credits.rtf */,
+				F4DDC876146EC772001D40A2 /* Cow-Info.plist */,
+				F4DDC877146EC772001D40A2 /* Credits.rtf */,
+				F4DDC878146EC772001D40A2 /* InfoPlist.strings */,
+				F4DDC887146ECE14001D40A2 /* Images */,
+				F4DDC88C146ECE32001D40A2 /* Xibs */,
 			);
-			name = "Supporting Files";
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F4DDC87E146EC823001D40A2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F4DDC880146EC845001D40A2 /* Categories */,
+				F4DDC87F146EC834001D40A2 /* Screens */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		F4DDC87F146EC834001D40A2 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F4DDC884146EC999001D40A2 /* COWStatusItemView.h */,
+				F4DDC885146EC999001D40A2 /* COWStatusItemView.m */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		F4DDC880146EC845001D40A2 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F4DDC881146EC900001D40A2 /* NSImage+COWExtensions.h */,
+				F4DDC882146EC900001D40A2 /* NSImage+COWExtensions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		F4DDC887146ECE14001D40A2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F4DDC888146ECE14001D40A2 /* menu_ico.png */,
+				F4DDC889146ECE14001D40A2 /* menu_ico_highlight.png */,
+			);
+			name = Images;
+			path = Resources/Images;
+			sourceTree = "<group>";
+		};
+		F4DDC88C146ECE32001D40A2 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				F4DDC88D146ECE33001D40A2 /* Preferences.xib */,
+			);
+			name = Xibs;
+			path = Resources/Xibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,9 +214,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F424790A146EC47C00EC4B05 /* InfoPlist.strings in Resources */,
-				F4247910146EC47C00EC4B05 /* Credits.rtf in Resources */,
-				F4247916146EC47D00EC4B05 /* MainMenu.xib in Resources */,
+				F4DDC87A146EC772001D40A2 /* Credits.rtf in Resources */,
+				F4DDC87B146EC772001D40A2 /* InfoPlist.strings in Resources */,
+				F4DDC88A146ECE14001D40A2 /* menu_ico.png in Resources */,
+				F4DDC88B146ECE14001D40A2 /* menu_ico_highlight.png in Resources */,
+				F4DDC88E146ECE33001D40A2 /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,37 +231,12 @@
 			files = (
 				F424790C146EC47C00EC4B05 /* main.m in Sources */,
 				F4247913146EC47C00EC4B05 /* COWAppDelegate.m in Sources */,
+				F4DDC883146EC900001D40A2 /* NSImage+COWExtensions.m in Sources */,
+				F4DDC886146EC999001D40A2 /* COWStatusItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		F4247908146EC47C00EC4B05 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F4247909146EC47C00EC4B05 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		F424790E146EC47C00EC4B05 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F424790F146EC47C00EC4B05 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		F4247914146EC47D00EC4B05 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F4247915146EC47D00EC4B05 /* en */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F4247917146EC47D00EC4B05 /* Debug */ = {
@@ -250,7 +289,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cow/Cow-Prefix.pch";
-				INFOPLIST_FILE = "Cow/Cow-Info.plist";
+				INFOPLIST_FILE = "Cow/Resources/Cow-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -261,7 +300,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cow/Cow-Prefix.pch";
-				INFOPLIST_FILE = "Cow/Cow-Info.plist";
+				INFOPLIST_FILE = "Cow/Resources/Cow-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -286,6 +325,7 @@
 				F424791B146EC47D00EC4B05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
