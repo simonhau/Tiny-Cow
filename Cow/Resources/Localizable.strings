@@ -1,0 +1,12 @@
+/* 
+  ui.strings
+  demo
+
+  Created by Simon Hau on 07/11/11.
+  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
+*/
+
+/* Preferences */
+"preferences.saveFiles.temporaryDirectory" = "In a temporary directory, automatically cleaned";
+"preferences.saveFiles.sameDirectory" = "Next to the orginal files, in the same directory";
+"preferences.saveFiles.customDirectory" = "Let me choose :";
