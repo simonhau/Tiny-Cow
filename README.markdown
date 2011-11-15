@@ -1,7 +1,7 @@
 TinyCow
 =======
 
-TinyCow is a small application which easily change the size of images.
+TinyCow is a small application which easily changes the size of images.
 
 
 How to use
