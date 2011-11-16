@@ -12,4 +12,6 @@
 #define kCOWStatusItemWidth (24)
 #define kCOWStatusItemHeight (21)
 
+#define kCOWImagesHistoryMaxCount (5)
+
 #endif

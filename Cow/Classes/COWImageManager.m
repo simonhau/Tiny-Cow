@@ -9,6 +9,8 @@
 #import "COWImageManager.h"
 #import "COWImage.h"
 
+NSString * const COWImageManagerDidResizeImageNotification =  @"COWImageManagerDidResizeImageNotification";
+
 @implementation COWImageManager
 
 static COWImageManager *sharedImageManager = nil;
@@ -62,9 +64,16 @@ static COWImageManager *sharedImageManager = nil;
 
 #pragma mark - Image Tools
 
-- (void)didResizeImages
+- (void)didResizeImage:(COWImage *)image
 {
-    NSLog(@"didResizeImages");
+    NSLog(@"didResizeImage:");
+    [[NSNotificationCenter defaultCenter] postNotificationName:COWImageManagerDidResizeImageNotification object:image];
+}
+
+- (void)didResizeImageFiles:(NSArray *)files
+{
+    NSLog(@"didResizeImageFiles:");
+    // FiXME
 }
 
 - (void)resizeImagesFilesInBackground:(NSArray *)files
@@ -74,11 +83,13 @@ static COWImageManager *sharedImageManager = nil;
     for (NSString *fileName in files) {
         COWImage *anImage = [[COWImage alloc] initWithContentsOfFile:fileName];
         if (anImage) {
-            [[anImage resizedImage] save];
+            COWImage *resizedImage = [anImage resizedImage];
+            [resizedImage save];
+            [self performSelectorOnMainThread:@selector(didResizeImage:) withObject:resizedImage waitUntilDone:NO];
             [anImage release];
         }
     }
-    [self performSelectorOnMainThread:@selector(didResizeImages) withObject:nil waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(didResizeImageFiles:) withObject:files waitUntilDone:NO];
     [pool release];
 }
 

@@ -7,7 +7,14 @@
 //
 
 #import <AppKit/AppKit.h>
+#import "COWImage.h"
 
 @interface COWStatusMenu : NSMenu
+{
+    NSUInteger historyIndex;
+    NSUInteger historyDefaultIndex;
+}
+
+- (void)addImageHistory:(COWImage *)image;
 
 @end

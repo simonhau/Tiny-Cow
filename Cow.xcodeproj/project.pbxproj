@@ -14,6 +14,7 @@
 		F4517A8E147042CE00B48AF5 /* COWStatusMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F4517A8D147042CE00B48AF5 /* COWStatusMenu.m */; };
 		F4517A921471319B00B48AF5 /* COWImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F4517A911471319B00B48AF5 /* COWImage.m */; };
 		F4D77E631474096F00CEC597 /* COWImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D77E621474096F00CEC597 /* COWImageManager.m */; };
+		F4D77E7014746AA500CEC597 /* COWImageHistoryMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D77E6F14746AA400CEC597 /* COWImageHistoryMenuItem.m */; };
 		F4DDC87A146EC772001D40A2 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F4DDC877146EC772001D40A2 /* Credits.rtf */; };
 		F4DDC87B146EC772001D40A2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4DDC878146EC772001D40A2 /* InfoPlist.strings */; };
 		F4DDC883146EC900001D40A2 /* NSImage+COWExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DDC882146EC900001D40A2 /* NSImage+COWExtensions.m */; };
@@ -42,6 +43,8 @@
 		F4517A911471319B00B48AF5 /* COWImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COWImage.m; path = Classes/COWImage.m; sourceTree = "<group>"; };
 		F4D77E611474096F00CEC597 /* COWImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COWImageManager.h; path = Classes/COWImageManager.h; sourceTree = "<group>"; };
 		F4D77E621474096F00CEC597 /* COWImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COWImageManager.m; path = Classes/COWImageManager.m; sourceTree = "<group>"; };
+		F4D77E6E14746AA400CEC597 /* COWImageHistoryMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COWImageHistoryMenuItem.h; path = Classes/COWImageHistoryMenuItem.h; sourceTree = "<group>"; };
+		F4D77E6F14746AA400CEC597 /* COWImageHistoryMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COWImageHistoryMenuItem.m; path = Classes/COWImageHistoryMenuItem.m; sourceTree = "<group>"; };
 		F4DDC876146EC772001D40A2 /* Cow-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Cow-Info.plist"; path = "Resources/Cow-Info.plist"; sourceTree = "<group>"; };
 		F4DDC877146EC772001D40A2 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = Credits.rtf; path = Resources/Credits.rtf; sourceTree = "<group>"; };
 		F4DDC878146EC772001D40A2 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Resources/InfoPlist.strings; sourceTree = "<group>"; };
@@ -124,6 +127,8 @@
 			children = (
 				F4517A8C147042CE00B48AF5 /* COWStatusMenu.h */,
 				F4517A8D147042CE00B48AF5 /* COWStatusMenu.m */,
+				F4D77E6E14746AA400CEC597 /* COWImageHistoryMenuItem.h */,
+				F4D77E6F14746AA400CEC597 /* COWImageHistoryMenuItem.m */,
 			);
 			name = "Status Menu";
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 				F4517A8E147042CE00B48AF5 /* COWStatusMenu.m in Sources */,
 				F4517A921471319B00B48AF5 /* COWImage.m in Sources */,
 				F4D77E631474096F00CEC597 /* COWImageManager.m in Sources */,
+				F4D77E7014746AA500CEC597 /* COWImageHistoryMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

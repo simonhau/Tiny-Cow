@@ -7,17 +7,26 @@
 //
 
 #import "COWStatusMenu.h"
+#import "COWImageHistoryMenuItem.h"
+#import "COWImageManager.h"
+
+@interface COWStatusMenu ()
+- (void)didResizeImage:(COWImage *)image;
+@end
 
 @implementation COWStatusMenu
 
 - (id)init
 {
     self = [super init];
-    if (self) {
+    if (self) {        
         NSMenuItem *menuItem = [[NSMenuItem alloc] init];
         [menuItem setTitle:@"↖ Drop the images on the icon"];
         [self addItem:menuItem];
         [menuItem release];
+        
+        historyDefaultIndex = [[self itemArray] count];
+        historyIndex = historyDefaultIndex;
         
         /**/
         
@@ -60,8 +69,39 @@
         [menuItem setTitle:@"Quit"];
         [self addItem:menuItem];
         [menuItem release];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didResizeImage:) name:COWImageManagerDidResizeImageNotification object:nil];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObject:self];
+    [super dealloc];
+}
+
+#pragma mark - 
+
+- (void)didResizeImage:(NSNotification *)notification
+{
+    if ([[notification object] isKindOfClass:[COWImage class]]) {
+        [self addImageHistory:[notification object]];        
+    }
+}
+
+- (void)addImageHistory:(COWImage *)image;
+{
+    if (historyIndex == historyDefaultIndex) {
+        [self insertItem:[NSMenuItem separatorItem] atIndex:historyDefaultIndex];
+        ++historyIndex;
+    }
+    
+    COWImageHistoryMenuItem *imageHistoryMenuItem = [[COWImageHistoryMenuItem alloc] initWithImage:image];
+    if (imageHistoryMenuItem) {
+        [self insertItem:imageHistoryMenuItem atIndex:historyIndex];
+        ++historyIndex;
+    }
 }
 
 @end
