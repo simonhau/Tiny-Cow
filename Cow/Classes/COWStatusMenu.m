@@ -7,7 +7,6 @@
 //
 
 #import "COWStatusMenu.h"
-#import "COWAppDelegate.h"
 
 @implementation COWStatusMenu
 
@@ -46,7 +45,7 @@
         
         menuItem = [[NSMenuItem alloc] init];
         [menuItem setTitle:@"Preferences"];
-        [menuItem setTarget:(COWAppDelegate *)[[NSApplication sharedApplication] delegate]];
+        [menuItem setTarget:[[NSApplication sharedApplication] delegate]];
         [menuItem setAction:@selector(showPreferencesWindow)];
         [self addItem:menuItem];
         [menuItem release];

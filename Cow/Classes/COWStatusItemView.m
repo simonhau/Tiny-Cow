@@ -8,6 +8,7 @@
 
 #import "COWStatusItemView.h"
 #import "COWImage.h"
+#import "COWImageManager.h"
 
 @implementation COWStatusItemView
 
@@ -60,7 +61,6 @@
 	if (aStatusItem != statusItem)
 	{
 		statusItem = aStatusItem;
-//        [statusItem.menu setDelegate:self];
 	}    
 }
 
@@ -105,15 +105,8 @@
     NSPasteboard *pboard = [sender draggingPasteboard];
     if ( [[pboard types] containsObject:NSFilenamesPboardType] ) {
         NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
-        NSLog(@"performDragOperation - Files: %@",files);        
-        // FiXME : Threads
-        for (NSString *fileName in files) {
-            COWImage *anImage = [[COWImage alloc] initWithContentsOfFile:fileName];
-            if (anImage) {
-                [[anImage resizedImage] save];
-                [anImage release];
-            }
-        }
+        COWImageManager *sharedImageManager = [COWImageManager sharedImageManager];
+        [sharedImageManager resizeImagesFiles:files];
     }
     return YES;
 }
