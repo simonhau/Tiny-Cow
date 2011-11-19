@@ -81,7 +81,7 @@
     [super dealloc];
 }
 
-#pragma mark - 
+#pragma mark - Image Conversion Notification
 
 - (void)didConvertImage:(NSNotification *)notification
 {
@@ -89,6 +89,8 @@
         [self addImageHistory:[notification object]];
     }
 }
+
+#pragma mark - Images History
 
 - (void)addImageHistory:(COWImage *)image;
 {
@@ -100,7 +102,6 @@
     COWImageHistoryMenuItem *imageHistoryMenuItem = [[COWImageHistoryMenuItem alloc] initWithImage:image];
     if (imageHistoryMenuItem) {
         [self insertItem:imageHistoryMenuItem atIndex:historyIndex];
-        ++historyIndex;
     }
 }
 
