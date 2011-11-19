@@ -31,6 +31,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     conversionParameters = [[COWImageConversionParameters alloc] init];
+    [conversionParameters setSize:NSMakeSize(0.5, 0.5)];
 }
 
 - (void)awakeFromNib
@@ -75,9 +76,7 @@
     [cleanHistoryPreferencesButton setEnabled:NO];
     
     // FiXME
-    [savePreferencesMatrix selectCell:sameDirectorySaveButtonCell];    
-    
-    [conversionParameters setSize:NSMakeSize(0.5, 0.5)];
+    [savePreferencesMatrix selectCell:sameDirectorySaveButtonCell];
 }
 
 #pragma mark - Preferences

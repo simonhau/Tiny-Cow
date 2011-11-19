@@ -79,16 +79,6 @@ static COWImageManager *sharedImageManager = nil;
 
 #pragma mark - Image Conversion
 
-- (NSSize)sizeForImage:(COWImage *)image parameters:(COWImageConversionParameters *)conversionParameters
-{
-    NSSize size = [image actualSize];
-    if ([conversionParameters resizeType] == COWImageConversionResizeScale) {
-        size.width = size.width * conversionParameters.size.width;
-        size.height = size.height * conversionParameters.size.height;
-    }
-    return size;
-}
-
 - (void)convertImagesFilesAndParametersInBackground:(NSArray *)filesAndParameters 
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -98,10 +88,9 @@ static COWImageManager *sharedImageManager = nil;
     for (NSString *fileName in files) {
         COWImage *anImage = [[COWImage alloc] initWithContentsOfFile:fileName];
         if (anImage) {
-            NSSize newSize = [self sizeForImage:anImage parameters:conversionParameters];
-            COWImage *resizedImage = [anImage resizedImage:newSize];
-            [resizedImage save];
-            [self performSelectorOnMainThread:@selector(didConvertImage:) withObject:resizedImage waitUntilDone:NO];
+            COWImage *convertedImage = [anImage convertedImage:conversionParameters];
+            [convertedImage save];
+            [self performSelectorOnMainThread:@selector(didConvertImage:) withObject:convertedImage waitUntilDone:NO];
             [anImage release];
         }
     }

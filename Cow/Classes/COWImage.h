@@ -8,6 +8,7 @@
 
 #import <AppKit/AppKit.h>
 #import "NSImage+COWExtensions.h"
+#import "COWImageConversionParameters.h"
 
 @interface COWImage : NSImage
 {
@@ -17,8 +18,7 @@
 @property (nonatomic, retain) NSString *sourceFileName;
 
 - (NSSize)actualSize;
-- (COWImage *)resizedImage;
-- (COWImage *)resizedImage:(NSSize)newSize;
+- (COWImage *)convertedImage:(COWImageConversionParameters *)conversionParameters;
 - (BOOL)save;
 
 @end

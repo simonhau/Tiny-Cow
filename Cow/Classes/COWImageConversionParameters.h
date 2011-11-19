@@ -10,8 +10,8 @@
 
 enum {
     COWImageConversionResizeNone,
-    COWImageConversionResizeFixed,
-    COWImageConversionResizeScale
+    COWImageConversionResizeScale,
+    COWImageConversionResizeFixed
 };
 typedef NSUInteger COWImageConversionResizeType;
 

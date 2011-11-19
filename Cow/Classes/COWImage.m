@@ -42,30 +42,34 @@
     return actualSize;
 }
 
-- (COWImage *)resizedImage
+- (NSSize)sizeForParameters:(COWImageConversionParameters *)conversionParameters
 {
-    NSBitmapImageRep *bitmapImageRep = [self bitmapImageRep];
-    if (bitmapImageRep) {
-        // FiXME 
-        NSInteger wide = [bitmapImageRep pixelsWide] / 2;
-        NSInteger high = [bitmapImageRep pixelsHigh] / 2;
-        return [self resizedImage:CGSizeMake(wide, high)];
+    NSSize size = [self actualSize];
+    if ([conversionParameters resizeType] == COWImageConversionResizeScale) {
+        size.width = size.width * conversionParameters.size.width;
+        size.height = size.height * conversionParameters.size.height;
     }
-    return NO;
+    else if ([conversionParameters resizeType] == COWImageConversionResizeFixed) {
+        size.width = conversionParameters.size.width;
+        size.height = conversionParameters.size.height;        
+    }
+    return size;
 }
 
-- (COWImage *)resizedImage:(NSSize)newSize
+- (COWImage *)convertedImage:(COWImageConversionParameters *)conversionParameters
 {
+    NSSize newSize = [self sizeForParameters:conversionParameters];
+    newSize.width = round(newSize.width);
+    newSize.height = round(newSize.height);
     COWImage *resizedImage = [[[COWImage alloc] initWithSize:CGSizeMake(newSize.width, newSize.height)] autorelease];
     [resizedImage setSourceFileName:self.sourceFileName];
-    
     [resizedImage lockFocus];
     [self drawInRect:NSMakeRect(0, 0, newSize.width, newSize.height) 
             fromRect:NSMakeRect(0, 0, self.size.width, self.size.height) 
            operation:NSCompositeSourceOver 
             fraction:1.0];
     [resizedImage unlockFocus];
-    
+
     return resizedImage;
 }
 
