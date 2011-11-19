@@ -16,10 +16,27 @@
 
 - (id)initWithImage:(COWImage *)image
 {
-    NSString *historyName = [[image sourceFileName] lastPathComponent];
-    self = [super initWithTitle:historyName action:@selector(clickedImageHistoryMenuItem) keyEquivalent:@""];
+    self = [super init];
     if (self) {
-        // FiXME
+        [self setTarget:self];
+        [self setAction:@selector(clickedImageHistoryMenuItem)];
+        
+        NSView *menuItemView = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 280, 20)];
+        
+        NSText *text = [[NSText alloc] initWithFrame:NSMakeRect(16 + 18 + 2, 0, 280, 20)];
+        [text setFont:[NSFont systemFontOfSize:14]];
+        [text setString:[[image sourceFileName] lastPathComponent]];
+        [text setBackgroundColor:[NSColor clearColor]];
+        [menuItemView addSubview:text];
+        [text release];
+        
+        NSImageView *imageView = [[NSImageView alloc] initWithFrame:NSMakeRect(16, 2, 18, 18)];
+        [imageView setImage:image];
+        [menuItemView addSubview:imageView];
+        [imageView release];
+        
+        [self setView:menuItemView];
+        [menuItemView release];
     }
     return self;
 }

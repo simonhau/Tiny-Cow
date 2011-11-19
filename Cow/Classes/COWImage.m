@@ -31,6 +31,17 @@
 
 #pragma mark - Resize
 
+- (NSSize)actualSize
+{
+    NSSize actualSize = NSZeroSize;
+    NSBitmapImageRep *bitmapImageRep = [self bitmapImageRep];
+    if (bitmapImageRep) {
+        actualSize.width = [bitmapImageRep pixelsWide];
+        actualSize.height = [bitmapImageRep pixelsHigh];
+    }
+    return actualSize;
+}
+
 - (COWImage *)resizedImage
 {
     NSBitmapImageRep *bitmapImageRep = [self bitmapImageRep];

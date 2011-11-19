@@ -13,6 +13,8 @@
 		F4517A76147009C400B48AF5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F4517A75147009C400B48AF5 /* Localizable.strings */; };
 		F4517A8E147042CE00B48AF5 /* COWStatusMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F4517A8D147042CE00B48AF5 /* COWStatusMenu.m */; };
 		F4517A921471319B00B48AF5 /* COWImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F4517A911471319B00B48AF5 /* COWImage.m */; };
+		F4B8DD5A1475D5BD00A3BC17 /* COWImageSizeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B8DD591475D5BD00A3BC17 /* COWImageSizeMenuItem.m */; };
+		F4B8DD5F1477B68E00A3BC17 /* COWImageConversionParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B8DD5E1477B68E00A3BC17 /* COWImageConversionParameters.m */; };
 		F4D77E631474096F00CEC597 /* COWImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D77E621474096F00CEC597 /* COWImageManager.m */; };
 		F4D77E7014746AA500CEC597 /* COWImageHistoryMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F4D77E6F14746AA400CEC597 /* COWImageHistoryMenuItem.m */; };
 		F4DDC87A146EC772001D40A2 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = F4DDC877146EC772001D40A2 /* Credits.rtf */; };
@@ -41,6 +43,10 @@
 		F4517A8D147042CE00B48AF5 /* COWStatusMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COWStatusMenu.m; path = Classes/COWStatusMenu.m; sourceTree = "<group>"; };
 		F4517A901471319B00B48AF5 /* COWImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COWImage.h; path = Classes/COWImage.h; sourceTree = "<group>"; };
 		F4517A911471319B00B48AF5 /* COWImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COWImage.m; path = Classes/COWImage.m; sourceTree = "<group>"; };
+		F4B8DD581475D5BD00A3BC17 /* COWImageSizeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COWImageSizeMenuItem.h; path = Classes/COWImageSizeMenuItem.h; sourceTree = "<group>"; };
+		F4B8DD591475D5BD00A3BC17 /* COWImageSizeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COWImageSizeMenuItem.m; path = Classes/COWImageSizeMenuItem.m; sourceTree = "<group>"; };
+		F4B8DD5D1477B68E00A3BC17 /* COWImageConversionParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COWImageConversionParameters.h; path = Classes/COWImageConversionParameters.h; sourceTree = "<group>"; };
+		F4B8DD5E1477B68E00A3BC17 /* COWImageConversionParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COWImageConversionParameters.m; path = Classes/COWImageConversionParameters.m; sourceTree = "<group>"; };
 		F4D77E611474096F00CEC597 /* COWImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COWImageManager.h; path = Classes/COWImageManager.h; sourceTree = "<group>"; };
 		F4D77E621474096F00CEC597 /* COWImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = COWImageManager.m; path = Classes/COWImageManager.m; sourceTree = "<group>"; };
 		F4D77E6E14746AA400CEC597 /* COWImageHistoryMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = COWImageHistoryMenuItem.h; path = Classes/COWImageHistoryMenuItem.h; sourceTree = "<group>"; };
@@ -129,6 +135,8 @@
 				F4517A8D147042CE00B48AF5 /* COWStatusMenu.m */,
 				F4D77E6E14746AA400CEC597 /* COWImageHistoryMenuItem.h */,
 				F4D77E6F14746AA400CEC597 /* COWImageHistoryMenuItem.m */,
+				F4B8DD581475D5BD00A3BC17 /* COWImageSizeMenuItem.h */,
+				F4B8DD591475D5BD00A3BC17 /* COWImageSizeMenuItem.m */,
 			);
 			name = "Status Menu";
 			sourceTree = "<group>";
@@ -140,8 +148,19 @@
 				F4517A911471319B00B48AF5 /* COWImage.m */,
 				F4D77E611474096F00CEC597 /* COWImageManager.h */,
 				F4D77E621474096F00CEC597 /* COWImageManager.m */,
+				F4B8DD5D1477B68E00A3BC17 /* COWImageConversionParameters.h */,
+				F4B8DD5E1477B68E00A3BC17 /* COWImageConversionParameters.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		F4B8DD5C1477B57400A3BC17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4DDC87F146EC834001D40A2 /* Status Item */,
+				F4517A8B1470427400B48AF5 /* Status Menu */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		F4DDC875146EC707001D40A2 /* Resources */ = {
@@ -162,8 +181,7 @@
 			children = (
 				F4517A8F1471317D00B48AF5 /* Model */,
 				F4DDC880146EC845001D40A2 /* Categories */,
-				F4DDC87F146EC834001D40A2 /* Status Item */,
-				F4517A8B1470427400B48AF5 /* Status Menu */,
+				F4B8DD5C1477B57400A3BC17 /* Views */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -279,6 +297,8 @@
 				F4517A921471319B00B48AF5 /* COWImage.m in Sources */,
 				F4D77E631474096F00CEC597 /* COWImageManager.m in Sources */,
 				F4D77E7014746AA500CEC597 /* COWImageHistoryMenuItem.m in Sources */,
+				F4B8DD5A1475D5BD00A3BC17 /* COWImageSizeMenuItem.m in Sources */,
+				F4B8DD5F1477B68E00A3BC17 /* COWImageConversionParameters.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "COWAppDelegate.h"
 #import "COWStatusItemView.h"
+#import "COWImageManager.h"
 
 @interface COWAppDelegate () 
 - (void)setupStatusItemAndMenu;
@@ -23,12 +24,13 @@
 
 - (void)dealloc
 {
+    [conversionParameters release];
     [super dealloc];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-
+    conversionParameters = [[COWImageConversionParameters alloc] init];
 }
 
 - (void)awakeFromNib
@@ -50,6 +52,7 @@
     COWStatusItemView *statusItemView = [[COWStatusItemView alloc] init];
     [statusMenu setDelegate:statusItemView];
     [statusItemView setStatusItem:statusItem];
+    [statusItemView setDelegate:self];
     [statusItem setView:statusItemView];
     [statusItemView release];
 }
@@ -70,6 +73,11 @@
     
     [savePreferencesMatrix setEnabled:NO];
     [cleanHistoryPreferencesButton setEnabled:NO];
+    
+    // FiXME
+    [savePreferencesMatrix selectCell:sameDirectorySaveButtonCell];    
+    
+    [conversionParameters setSize:NSMakeSize(0.5, 0.5)];
 }
 
 #pragma mark - Preferences
@@ -109,6 +117,14 @@
     else {
         NSLog(@"toggleStartOnSystemStartup - OFF");            
     }
+}
+
+#pragma mark - COWStatusItemViewDelegate
+
+- (void)didDragFiles:(NSArray *)files
+{
+    COWImageManager *sharedImageManager = [COWImageManager sharedImageManager];
+    [sharedImageManager convertImagesFilesAndParameters:[NSArray arrayWithObjects:files, conversionParameters, nil]];
 }
 
 @end

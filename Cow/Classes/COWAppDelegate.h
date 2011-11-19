@@ -8,9 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "COWStatusMenu.h"
+#import "COWImageConversionParameters.h"
+#import "COWStatusItemView.h"
 
-@interface COWAppDelegate : NSObject <NSApplicationDelegate>
+@interface COWAppDelegate : NSObject <NSApplicationDelegate, COWStatusItemViewDelegate>
 {
+    COWImageConversionParameters *conversionParameters;
 }
 
 @property (assign) IBOutlet NSWindow *window;

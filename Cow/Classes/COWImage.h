@@ -16,6 +16,7 @@
 
 @property (nonatomic, retain) NSString *sourceFileName;
 
+- (NSSize)actualSize;
 - (COWImage *)resizedImage;
 - (COWImage *)resizedImage:(NSSize)newSize;
 - (BOOL)save;

@@ -79,7 +79,7 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Cow/Classes/COWStatusMenu.m"
-         timestampString = "343176619.666486"
+         timestampString = "343216938.307609"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "95"
@@ -92,13 +92,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Cow/Classes/COWImageHistoryMenuItem.m"
-         timestampString = "343176657.714083"
+         filePath = "Cow/Classes/COWImageManager.m"
+         timestampString = "343416073.956932"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "20"
-         endingLineNumber = "20"
-         landmarkName = "-initWithImage:"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
+         landmarkName = "-convertImagesFilesAndParametersInBackground:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

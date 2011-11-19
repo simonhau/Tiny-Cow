@@ -12,7 +12,7 @@
 
 @implementation COWStatusItemView
 
-@synthesize image, alternateImage, highlight, statusItem;
+@synthesize image, alternateImage, highlight, statusItem, delegate;
 
 - (id)init
 {
@@ -101,12 +101,11 @@
 
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender 
 {
-//    NSDragOperation sourceDragMask = [sender draggingSourceOperationMask];
+    // NSDragOperation sourceDragMask = [sender draggingSourceOperationMask];
     NSPasteboard *pboard = [sender draggingPasteboard];
     if ( [[pboard types] containsObject:NSFilenamesPboardType] ) {
         NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
-        COWImageManager *sharedImageManager = [COWImageManager sharedImageManager];
-        [sharedImageManager resizeImagesFiles:files];
+        [delegate didDragFiles:files];
     }
     return YES;
 }

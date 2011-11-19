@@ -8,8 +8,9 @@
 
 #import "COWImageManager.h"
 #import "COWImage.h"
+#import "COWImageConversionParameters.h"
 
-NSString * const COWImageManagerDidResizeImageNotification =  @"COWImageManagerDidResizeImageNotification";
+NSString * const COWImageManagerDidConvertImageNotification =  @"COWImageManagerDidConvertImageNotification";
 
 @implementation COWImageManager
 
@@ -62,40 +63,59 @@ static COWImageManager *sharedImageManager = nil;
     return self;
 }
 
-#pragma mark - Image Tools
+#pragma mark - Image Conversion notifications
 
-- (void)didResizeImage:(COWImage *)image
+- (void)didConvertImage:(COWImage *)image
 {
-    NSLog(@"didResizeImage:");
-    [[NSNotificationCenter defaultCenter] postNotificationName:COWImageManagerDidResizeImageNotification object:image];
+    NSLog(@"didConvertImage:");
+    [[NSNotificationCenter defaultCenter] postNotificationName:COWImageManagerDidConvertImageNotification object:image];
 }
 
-- (void)didResizeImageFiles:(NSArray *)files
+- (void)didConvertImageFiles:(NSArray *)files
 {
-    NSLog(@"didResizeImageFiles:");
+    NSLog(@"didConvertImageFiles:");
     // FiXME
 }
 
-- (void)resizeImagesFilesInBackground:(NSArray *)files
+#pragma mark - Image Conversion
+
+- (NSSize)sizeForImage:(COWImage *)image parameters:(COWImageConversionParameters *)conversionParameters
+{
+    NSSize size = [image actualSize];
+    if ([conversionParameters resizeType] == COWImageConversionResizeScale) {
+        size.width = size.width * conversionParameters.size.width;
+        size.height = size.height * conversionParameters.size.height;
+    }
+    return size;
+}
+
+- (void)convertImagesFilesAndParametersInBackground:(NSArray *)filesAndParameters 
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    NSLog(@"resizeImagesFilesInBackground - Files: %@",files);        
+    NSArray *files = [filesAndParameters objectAtIndex:0];
+    COWImageConversionParameters *conversionParameters = [filesAndParameters objectAtIndex:1];
+    NSLog(@"convertImagesFilesAndParametersInBackground - Files: %@", files);        
     for (NSString *fileName in files) {
         COWImage *anImage = [[COWImage alloc] initWithContentsOfFile:fileName];
         if (anImage) {
-            COWImage *resizedImage = [anImage resizedImage];
+            NSSize newSize = [self sizeForImage:anImage parameters:conversionParameters];
+            COWImage *resizedImage = [anImage resizedImage:newSize];
             [resizedImage save];
-            [self performSelectorOnMainThread:@selector(didResizeImage:) withObject:resizedImage waitUntilDone:NO];
+            [self performSelectorOnMainThread:@selector(didConvertImage:) withObject:resizedImage waitUntilDone:NO];
             [anImage release];
         }
     }
-    [self performSelectorOnMainThread:@selector(didResizeImageFiles:) withObject:files waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(didConvertImageFiles:) withObject:files waitUntilDone:NO];
     [pool release];
 }
 
-- (void)resizeImagesFiles:(NSArray *)files
+- (void)convertImagesFilesAndParameters:(NSArray *)filesAndParameters
 {
-    [NSThread detachNewThreadSelector:@selector(resizeImagesFilesInBackground:) toTarget:self withObject:files];
+    if ([filesAndParameters count] < 2) {
+        NSAssert(0, @"convertImagesFilesAndParameters - filesAndParameters empty");
+        return;
+    }
+    [NSThread detachNewThreadSelector:@selector(convertImagesFilesAndParametersInBackground:) toTarget:self withObject:filesAndParameters];
 }
 
 @end

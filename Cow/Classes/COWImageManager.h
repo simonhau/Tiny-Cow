@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const COWImageManagerDidResizeImageNotification;
+extern NSString * const COWImageManagerDidConvertImageNotification;
 
 @interface COWImageManager : NSObject
 
 + (COWImageManager *)sharedImageManager;
-- (void)resizeImagesFiles:(NSArray *)files;
+- (void)convertImagesFilesAndParameters:(NSArray *)filesAndParameters;
 
 @end

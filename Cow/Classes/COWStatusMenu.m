@@ -11,7 +11,7 @@
 #import "COWImageManager.h"
 
 @interface COWStatusMenu ()
-- (void)didResizeImage:(COWImage *)image;
+- (void)didConvertImage:(COWImage *)image;
 @end
 
 @implementation COWStatusMenu
@@ -69,8 +69,8 @@
         [menuItem setTitle:@"Quit"];
         [self addItem:menuItem];
         [menuItem release];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didResizeImage:) name:COWImageManagerDidResizeImageNotification object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didConvertImage:) name:COWImageManagerDidConvertImageNotification object:nil];
     }
     return self;
 }
@@ -83,10 +83,10 @@
 
 #pragma mark - 
 
-- (void)didResizeImage:(NSNotification *)notification
+- (void)didConvertImage:(NSNotification *)notification
 {
     if ([[notification object] isKindOfClass:[COWImage class]]) {
-        [self addImageHistory:[notification object]];        
+        [self addImageHistory:[notification object]];
     }
 }
 
