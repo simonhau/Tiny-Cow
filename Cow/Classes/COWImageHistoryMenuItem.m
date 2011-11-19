@@ -25,7 +25,7 @@
         
         NSText *text = [[NSText alloc] initWithFrame:NSMakeRect(16 + 18 + 2, 0, 280, 20)];
         [text setFont:[NSFont systemFontOfSize:14]];
-        [text setString:[[image sourceFileName] lastPathComponent]];
+        [text setString:[[image savedFileName] lastPathComponent]];
         [text setBackgroundColor:[NSColor clearColor]];
         [menuItemView addSubview:text];
         [text release];

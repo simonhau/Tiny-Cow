@@ -17,12 +17,12 @@ typedef NSUInteger COWImageConversionResizeType;
 
 @interface COWImageConversionParameters : NSObject
 {
-    NSSize size;
     COWImageConversionResizeType resizeType;
-    // FiXME : other parameters
+    NSSize conversionSize;
+    // FiXME : other parameters (directory, etc.)
 }
 
 @property (nonatomic, assign) COWImageConversionResizeType resizeType;
-@property (nonatomic, assign) NSSize size;
+@property (nonatomic, assign) NSSize conversionSize;
 
 @end

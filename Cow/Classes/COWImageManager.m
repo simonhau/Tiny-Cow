@@ -102,7 +102,6 @@ static COWImageManager *sharedImageManager = nil;
 {
     if ([filesAndParameters count] < 2) {
         NSAssert(0, @"convertImagesFilesAndParameters - filesAndParameters empty");
-        return;
     }
     [NSThread detachNewThreadSelector:@selector(convertImagesFilesAndParametersInBackground:) toTarget:self withObject:filesAndParameters];
 }

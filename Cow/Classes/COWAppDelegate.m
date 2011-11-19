@@ -30,12 +30,12 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    conversionParameters = [[COWImageConversionParameters alloc] init];
-    [conversionParameters setSize:NSMakeSize(0.5, 0.5)];
 }
 
 - (void)awakeFromNib
 {
+    conversionParameters = [[COWImageConversionParameters alloc] init];
+
     [self setupStatusItemAndMenu];
     [self setupPreferencesWindow];
 }
@@ -46,7 +46,8 @@
 {
     NSStatusItem *statusItem = [[[NSStatusBar systemStatusBar] statusItemWithLength:kCOWStatusItemWidth] retain];
 
-    COWStatusMenu *statusMenu = [[COWStatusMenu alloc] init];
+    COWStatusMenu *statusMenu = [[COWStatusMenu alloc] initWithAppDelegate:self];
+    [statusMenu setAppDelegate:self];
     [statusItem setMenu:statusMenu];
     [statusMenu release];
 
@@ -124,6 +125,14 @@
 {
     COWImageManager *sharedImageManager = [COWImageManager sharedImageManager];
     [sharedImageManager convertImagesFilesAndParameters:[NSArray arrayWithObjects:files, conversionParameters, nil]];
+}
+
+#pragma mark - COWStatusMenu
+
+- (void)selectedSizeMenuItem:(COWImageSizeMenuItem *)sizeMenuItem
+{
+    [conversionParameters setConversionSize:[sizeMenuItem conversionSize]];
+    [conversionParameters setResizeType:[sizeMenuItem resizeType]];
 }
 
 @end

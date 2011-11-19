@@ -10,6 +10,7 @@
 #import "COWStatusMenu.h"
 #import "COWImageConversionParameters.h"
 #import "COWStatusItemView.h"
+#import "COWImageSizeMenuItem.h"
 
 @interface COWAppDelegate : NSObject <NSApplicationDelegate, COWStatusItemViewDelegate>
 {
@@ -19,5 +20,7 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSButton *cleanHistoryPreferencesButton;
 @property (assign) IBOutlet NSMatrix *savePreferencesMatrix;
+
+- (void)selectedSizeMenuItem:(COWImageSizeMenuItem *)sizeMenuItem;
 
 @end

@@ -11,14 +11,14 @@
 @implementation COWImageConversionParameters
 
 @synthesize resizeType;
-@synthesize size;
+@synthesize conversionSize;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         resizeType = COWImageConversionResizeScale;
-        size = NSZeroSize;
+        conversionSize = NSZeroSize;
     }
     return self;
 }

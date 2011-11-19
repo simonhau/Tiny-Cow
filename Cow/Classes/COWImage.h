@@ -13,9 +13,11 @@
 @interface COWImage : NSImage
 {
     NSString *sourceFileName;
+    NSString *savedFileName;
 }
 
 @property (nonatomic, retain) NSString *sourceFileName;
+@property (nonatomic, retain) NSString *savedFileName;
 
 - (NSSize)actualSize;
 - (COWImage *)convertedImage:(COWImageConversionParameters *)conversionParameters;

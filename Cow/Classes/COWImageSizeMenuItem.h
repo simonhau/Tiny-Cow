@@ -7,7 +7,17 @@
 //
 
 #import <AppKit/AppKit.h>
+#import "COWImageConversionParameters.h"
 
 @interface COWImageSizeMenuItem : NSMenuItem
+{
+    COWImageConversionResizeType resizeType;
+    NSSize conversionSize;
+}
+
+- (id)initWithTitle:(NSString *)aString action:(SEL)aSelector target:(id)aTarget resizeType:(COWImageConversionResizeType)aResizeType conversionSize:(NSSize)aConversionSize;
+
+@property (nonatomic, assign) COWImageConversionResizeType resizeType;
+@property (nonatomic, assign) NSSize conversionSize;
 
 @end

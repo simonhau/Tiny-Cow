@@ -9,12 +9,18 @@
 #import <AppKit/AppKit.h>
 #import "COWImage.h"
 
+@class COWAppDelegate;
+
 @interface COWStatusMenu : NSMenu
 {
     NSUInteger historyIndex;
     NSUInteger historyDefaultIndex;
+    COWAppDelegate *appDelegate;
 }
 
+@property (nonatomic, assign) COWAppDelegate *appDelegate;
+
+- (id)initWithAppDelegate:(COWAppDelegate *)anAppDelegate;
 - (void)addImageHistory:(COWImage *)image;
 
 @end

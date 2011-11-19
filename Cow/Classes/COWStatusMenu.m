@@ -8,18 +8,25 @@
 
 #import "COWStatusMenu.h"
 #import "COWImageHistoryMenuItem.h"
+#import "COWImageSizeMenuItem.h"
 #import "COWImageManager.h"
+#import "COWAppDelegate.h"
 
 @interface COWStatusMenu ()
 - (void)didConvertImage:(COWImage *)image;
+- (void)selectSizeMenuItem:(COWImageSizeMenuItem *)sizeMenuItem;
 @end
 
 @implementation COWStatusMenu
 
-- (id)init
+@synthesize appDelegate;
+
+- (id)initWithAppDelegate:(COWAppDelegate *)anAppDelegate
 {
     self = [super init];
     if (self) {        
+        self.appDelegate = anAppDelegate;
+        
         NSMenuItem *menuItem = [[NSMenuItem alloc] init];
         [menuItem setTitle:@"↖ Drop the images on the icon"];
         [self addItem:menuItem];
@@ -32,21 +39,31 @@
         
         [self addItem:[NSMenuItem separatorItem]];
         
-        menuItem = [[NSMenuItem alloc] init];
-        [menuItem setTitle:@"25%"];
-        [menuItem setState:NSOffState];
-        [menuItem setTarget:self];
-        [menuItem setAction:@selector(tmpMethod)];
-        [self addItem:menuItem];
-        [menuItem release];
+        COWImageSizeMenuItem *sizeMenuItem = nil;
+        sizeMenuItem = [[COWImageSizeMenuItem alloc] initWithTitle:@"25%" 
+                                                            action:@selector(selectSizeMenuItem:) 
+                                                            target:self 
+                                                        resizeType:COWImageConversionResizeScale 
+                                                    conversionSize:NSMakeSize(0.25, 0.25)];
+        [self addItem:sizeMenuItem];
+        [sizeMenuItem release];
         
-        menuItem = [[NSMenuItem alloc] init];
-        [menuItem setTitle:@"50%"];
-        [menuItem setState:NSOnState];
-        [menuItem setTarget:self];
-        [menuItem setAction:@selector(tmpMethod)];
-        [self addItem:menuItem];
-        [menuItem release];
+        sizeMenuItem = [[COWImageSizeMenuItem alloc] initWithTitle:@"50%" 
+                                                            action:@selector(selectSizeMenuItem:) 
+                                                            target:self 
+                                                        resizeType:COWImageConversionResizeScale 
+                                                    conversionSize:NSMakeSize(0.50, 0.50)];
+        [self selectSizeMenuItem:sizeMenuItem];
+        [self addItem:sizeMenuItem];
+        [sizeMenuItem release];
+        
+        sizeMenuItem = [[COWImageSizeMenuItem alloc] initWithTitle:@"75%" 
+                                                            action:@selector(selectSizeMenuItem:) 
+                                                            target:self 
+                                                        resizeType:COWImageConversionResizeScale 
+                                                    conversionSize:NSMakeSize(0.75, 0.75)];
+        [self addItem:sizeMenuItem];
+        [sizeMenuItem release];
 
         /**/
         
@@ -102,6 +119,21 @@
     COWImageHistoryMenuItem *imageHistoryMenuItem = [[COWImageHistoryMenuItem alloc] initWithImage:image];
     if (imageHistoryMenuItem) {
         [self insertItem:imageHistoryMenuItem atIndex:historyIndex];
+    }
+}
+
+#pragma mark - Size Items Actions
+
+- (void)selectSizeMenuItem:(COWImageSizeMenuItem *)sizeMenuItem
+{
+    for (NSMenuItem *menuItem in [self itemArray]) {
+        if ([menuItem isKindOfClass:[COWImageSizeMenuItem class]]) {
+            [menuItem setState:NSOffState];
+        }
+    }
+    [sizeMenuItem setState:NSOnState];
+    if ([appDelegate respondsToSelector:@selector(selectedSizeMenuItem:)]) {
+        [appDelegate selectedSizeMenuItem:sizeMenuItem];
     }
 }
 

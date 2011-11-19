@@ -10,7 +10,7 @@
 
 @implementation COWImage
 
-@synthesize sourceFileName;
+@synthesize sourceFileName, savedFileName;
 
 - (id)initWithContentsOfFile:(NSString *)aFileName
 {
@@ -26,6 +26,7 @@
 - (void)dealloc
 {
     self.sourceFileName = nil;
+    self.savedFileName = nil;
     [super dealloc];
 }
 
@@ -46,12 +47,12 @@
 {
     NSSize size = [self actualSize];
     if ([conversionParameters resizeType] == COWImageConversionResizeScale) {
-        size.width = size.width * conversionParameters.size.width;
-        size.height = size.height * conversionParameters.size.height;
+        size.width = size.width * conversionParameters.conversionSize.width;
+        size.height = size.height * conversionParameters.conversionSize.height;
     }
     else if ([conversionParameters resizeType] == COWImageConversionResizeFixed) {
-        size.width = conversionParameters.size.width;
-        size.height = conversionParameters.size.height;        
+        size.width = conversionParameters.conversionSize.width;
+        size.height = conversionParameters.conversionSize.height;        
     }
     return size;
 }
@@ -94,8 +95,9 @@
         ++iteration;
     }
     
-    if (filePath) {
-        return [self saveAtFilePath:filePath];
+    if ((filePath) && ([self saveAtFilePath:filePath])) {
+        self.savedFileName = filePath;
+        return YES;
     }
     
     return NO;
