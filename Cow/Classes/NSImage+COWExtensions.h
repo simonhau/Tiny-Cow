@@ -11,6 +11,7 @@
 @interface NSImage (COWExtensions)
 
 - (NSBitmapImageRep *)bitmapImageRep;
+- (NSSize)actualSize;
 - (BOOL)saveAtFilePath:(NSString *)aFilePath;
 
 @end

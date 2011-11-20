@@ -19,7 +19,6 @@
 @property (nonatomic, retain) NSString *sourceFileName;
 @property (nonatomic, retain) NSString *savedFileName;
 
-- (NSSize)actualSize;
 - (COWImage *)convertedImage:(COWImageConversionParameters *)conversionParameters;
 - (BOOL)save;
 

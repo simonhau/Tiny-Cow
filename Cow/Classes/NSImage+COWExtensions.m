@@ -26,6 +26,17 @@
     return bitmapImageRep;
 }
 
+- (NSSize)actualSize
+{
+    NSSize actualSize = NSZeroSize;
+    NSBitmapImageRep *bitmapImageRep = [self bitmapImageRep];
+    if (bitmapImageRep) {
+        actualSize.width = [bitmapImageRep pixelsWide];
+        actualSize.height = [bitmapImageRep pixelsHigh];
+    }
+    return actualSize;
+}
+
 - (BOOL)saveAtFilePath:(NSString *)aFilePath
 {    
     NSBitmapImageRep *bitmapImageRep = [self bitmapImageRep];
