@@ -8,7 +8,7 @@
 
 #import "COWImageManager.h"
 #import "COWImage.h"
-#import "COWImageConversionParameters.h"
+#import "COWImageConversionOperation.h"
 
 NSString * const COWImageManagerDidConvertImageNotification =  @"COWImageManagerDidConvertImageNotification";
 
@@ -17,6 +17,16 @@ NSString * const COWImageManagerDidConvertImageNotification =  @"COWImageManager
 static COWImageManager *sharedImageManager = nil;
 
 #pragma mark - Singleton
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        conversionOperationQueue = [[NSOperationQueue alloc] init];
+        [conversionOperationQueue setMaxConcurrentOperationCount:1];
+    }
+    return self;
+}
 
 + (COWImageManager *)sharedImageManager
 {
@@ -56,6 +66,7 @@ static COWImageManager *sharedImageManager = nil;
 
 - (oneway void)release 
 {
+//    [conversionOperationQueue release];
 }
 
 - (id)autorelease 
@@ -79,31 +90,11 @@ static COWImageManager *sharedImageManager = nil;
 
 #pragma mark - Image Conversion
 
-- (void)convertImagesFilesAndParametersInBackground:(NSArray *)filesAndParameters 
+- (void)convertImagesFiles:(NSArray *)imageFiles parameters:(COWImageConversionParameters *)conversionParameters
 {
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    NSArray *files = [filesAndParameters objectAtIndex:0];
-    COWImageConversionParameters *conversionParameters = [filesAndParameters objectAtIndex:1];
-    NSLog(@"convertImagesFilesAndParametersInBackground - Files: %@", files);        
-    for (NSString *fileName in files) {
-        COWImage *anImage = [[COWImage alloc] initWithContentsOfFile:fileName];
-        if (anImage) {
-            COWImage *convertedImage = [anImage convertedImage:conversionParameters];
-            [convertedImage save];
-            [self performSelectorOnMainThread:@selector(didConvertImage:) withObject:convertedImage waitUntilDone:NO];
-            [anImage release];
-        }
-    }
-    [self performSelectorOnMainThread:@selector(didConvertImageFiles:) withObject:files waitUntilDone:NO];
-    [pool release];
-}
-
-- (void)convertImagesFilesAndParameters:(NSArray *)filesAndParameters
-{
-    if ([filesAndParameters count] < 2) {
-        NSAssert(0, @"convertImagesFilesAndParameters - filesAndParameters empty");
-    }
-    [NSThread detachNewThreadSelector:@selector(convertImagesFilesAndParametersInBackground:) toTarget:self withObject:filesAndParameters];
+    COWImageConversionOperation *conversionOperation = [[COWImageConversionOperation alloc] initWithFiles:imageFiles parameters:conversionParameters];
+    [conversionOperationQueue addOperation:conversionOperation];
+    [conversionOperation release];
 }
 
 @end

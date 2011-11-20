@@ -124,7 +124,7 @@
 - (void)didDragFiles:(NSArray *)files
 {
     COWImageManager *sharedImageManager = [COWImageManager sharedImageManager];
-    [sharedImageManager convertImagesFilesAndParameters:[NSArray arrayWithObjects:files, conversionParameters, nil]];
+    [sharedImageManager convertImagesFiles:files parameters:conversionParameters];
 }
 
 #pragma mark - COWStatusMenu

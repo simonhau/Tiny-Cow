@@ -7,12 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "COWImageConversionParameters.h"
 
 extern NSString * const COWImageManagerDidConvertImageNotification;
 
 @interface COWImageManager : NSObject
+{
+    NSOperationQueue *conversionOperationQueue;
+}
 
 + (COWImageManager *)sharedImageManager;
-- (void)convertImagesFilesAndParameters:(NSArray *)filesAndParameters;
+- (void)convertImagesFiles:(NSArray *)imageFiles parameters:(COWImageConversionParameters *)conversionParameters;
 
 @end
