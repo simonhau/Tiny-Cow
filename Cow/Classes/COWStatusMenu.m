@@ -115,11 +115,10 @@
         [self insertItem:[NSMenuItem separatorItem] atIndex:historyDefaultIndex];
         ++historyIndex;
     }
-    
+
     COWImageHistoryMenuItem *imageHistoryMenuItem = [[COWImageHistoryMenuItem alloc] initWithImage:image];
-    if (imageHistoryMenuItem) {
-        [self insertItem:imageHistoryMenuItem atIndex:historyIndex];
-    }
+    [self insertItem:imageHistoryMenuItem atIndex:historyIndex];
+    [imageHistoryMenuItem release];
 }
 
 #pragma mark - Size Items Actions
