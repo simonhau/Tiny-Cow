@@ -8,20 +8,42 @@
 
 #import "COWImage.h"
 
+@interface COWImage ()
+- (NSSize)sizeForParameters:(COWImageConversionParameters *)conversionParameters;
+@end
+
 @implementation COWImage
 
 @synthesize sourceFileName, savedFileName;
 
-- (id)initWithContentsOfFile:(NSString *)aFileName
+- (id)initWithSourceImage:(COWImage *)aSourceImage size:(NSSize)aNewSize
 {
-    self = [super initWithContentsOfFile:aFileName];
+    self = [[COWImage alloc] initWithSize:CGSizeMake(aNewSize.width, aNewSize.height)];
     if (self) {
-        self.sourceFileName = aFileName;
+        [self setCacheMode:NSImageCacheNever];
+        self.sourceFileName = [aSourceImage sourceFileName];
+        self.savedFileName = [aSourceImage savedFileName];
         NSLog(@"initWithContentsOfFile - sourceFileName = %@", sourceFileName);
+        [self lockFocus];
+        [aSourceImage drawInRect:NSMakeRect(0, 0, aNewSize.width, aNewSize.height) 
+                       fromRect:NSMakeRect(0, 0, 0, 0) 
+                      operation:NSCompositeSourceOver 
+                       fraction:1.0];
+        [self unlockFocus];
     }
     return self;
 }
 
+- (id)initWithContentsOfFile:(NSString *)aFileName parameters:(COWImageConversionParameters *)conversionParameters
+{
+    COWImage *sourceImage = [self initWithContentsOfFile:aFileName];
+    if (sourceImage) {
+        [sourceImage setSourceFileName:aFileName];
+        NSSize newSize = [sourceImage sizeForParameters:conversionParameters];
+        self = [[COWImage alloc] initWithSourceImage:sourceImage size:newSize];
+    }
+    return self;
+}
 
 - (void)dealloc
 {
@@ -43,24 +65,11 @@
         size.width = conversionParameters.conversionSize.width;
         size.height = conversionParameters.conversionSize.height;        
     }
+    
+    size.width = round(size.width);
+    size.height = round(size.height);
+    
     return size;
-}
-
-- (COWImage *)convertedImage:(COWImageConversionParameters *)conversionParameters
-{
-    NSSize newSize = [self sizeForParameters:conversionParameters];
-    newSize.width = round(newSize.width);
-    newSize.height = round(newSize.height);
-    COWImage *resizedImage = [[[COWImage alloc] initWithSize:CGSizeMake(newSize.width, newSize.height)] autorelease];
-    [resizedImage setSourceFileName:self.sourceFileName];
-    [resizedImage lockFocus];
-    [self drawInRect:NSMakeRect(0, 0, newSize.width, newSize.height) 
-            fromRect:NSMakeRect(0, 0, self.size.width, self.size.height) 
-           operation:NSCompositeSourceOver 
-            fraction:1.0];
-    [resizedImage unlockFocus];
-
-    return resizedImage;
 }
 
 #pragma mark - Save

@@ -35,15 +35,15 @@
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     for (NSString *fileName in imageFiles) {
-        COWImage *anImage = [[COWImage alloc] initWithContentsOfFile:fileName];
+        COWImage *anImage = [[COWImage alloc] initWithContentsOfFile:fileName parameters:conversionParameters];
         if (anImage) {
-            COWImage *convertedImage = [anImage convertedImage:conversionParameters];
-            [convertedImage save];
-            [[COWImageManager sharedImageManager] performSelectorOnMainThread:@selector(didConvertImage:) withObject:convertedImage waitUntilDone:NO];
+            // FiXME - save to be customized
+            [anImage save];
+            [[COWImageManager sharedImageManager] performSelectorOnMainThread:@selector(didConvertImage:) withObject:anImage waitUntilDone:NO];
             [anImage release];
         }
     }
-    [[COWImageManager sharedImageManager] performSelectorOnMainThread:@selector(didConvertImageFiles:) withObject:imageFiles waitUntilDone:NO];
+    //[[COWImageManager sharedImageManager] performSelectorOnMainThread:@selector(didConvertImageFiles:) withObject:imageFiles waitUntilDone:NO];
     [pool release];
 }
 

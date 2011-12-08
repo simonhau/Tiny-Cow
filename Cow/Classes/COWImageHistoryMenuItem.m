@@ -30,10 +30,12 @@
         [menuItemView addSubview:text];
         [text release];
         
-        NSImageView *imageView = [[NSImageView alloc] initWithFrame:NSMakeRect(16, 2, 18, 18)];
-        [imageView setImage:image];
-        [menuItemView addSubview:imageView];
-        [imageView release];
+        if (image) {
+            NSImageView *imageView = [[NSImageView alloc] initWithFrame:NSMakeRect(16, 2, 18, 18)];
+            [imageView setImage:image];
+            [menuItemView addSubview:imageView];
+            [imageView release];
+        }
         
         [self setView:menuItemView];
         [menuItemView release];

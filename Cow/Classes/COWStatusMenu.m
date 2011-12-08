@@ -116,7 +116,9 @@
         ++historyIndex;
     }
 
-    COWImageHistoryMenuItem *imageHistoryMenuItem = [[COWImageHistoryMenuItem alloc] initWithImage:image];
+    COWImage *thumbnailImage = [[COWImage alloc] initWithSourceImage:image size:NSMakeSize(18, 18)];
+    COWImageHistoryMenuItem *imageHistoryMenuItem = [[COWImageHistoryMenuItem alloc] initWithImage:thumbnailImage];
+    [thumbnailImage release];
     [self insertItem:imageHistoryMenuItem atIndex:historyIndex];
     [imageHistoryMenuItem release];
 }
